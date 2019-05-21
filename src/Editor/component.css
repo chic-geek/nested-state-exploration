@@ -1,0 +1,30 @@
+.editor {
+  padding: 1rem;
+  width: 100%;
+}
+
+.editor button {
+  background: none;
+  border: 1px solid white;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  outline: none;
+}
+
+.editor button:focus {
+  background-color: #2196f3;
+  border-color: #2196f3;
+  opacity: 1;
+}
+
+.editor+button,
+.editor+.editor {
+  margin-top: 1rem;
+}
+
+.editor-isNested {
+  margin-left: 3.5rem;
+  width: calc(100% - 3.5rem);
+}

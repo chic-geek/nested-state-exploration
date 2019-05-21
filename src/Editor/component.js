@@ -1,12 +1,19 @@
 import React from "react";
+import { EditorContext } from "../Contexts/EditorContext";
 
 class Editor extends React.Component {
   render() {
-    const isNested = this.props.isNested ? "editor-isNested" : "";
     return (
-      <div className={`editor ${isNested}`} style={{ backgroundColor: `${this.props.color}` }}>
-        <strong style={{ fontWeight: "bold", color: "#FFFFFF" }}>{this.props.children}</strong>
-      </div>
+      <EditorContext.Consumer>
+        {(context) => (
+          <div className={`editor`} style={{ backgroundColor: `${this.props.color}` }}>
+            {this.props.children}
+            <button onClick={(e, uid) => context.handleAddingEditor(e, this.props.uid)}>
+              Add editor
+            </button>
+          </div>
+        )}
+      </EditorContext.Consumer>
     );
   }
 }
